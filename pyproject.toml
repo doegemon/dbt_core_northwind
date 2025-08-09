@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 pre-commit = "^4.2.0"
+dbt-postgres = "^1.9.0"
 
 
 [build-system]

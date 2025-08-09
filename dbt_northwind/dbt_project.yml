@@ -1,0 +1,31 @@
+
+name: 'dbt_northwind'
+version: '1.0.0'
+
+profile: 'dbt_northwind'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_northwind:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view
+
+seeds:
+  dbt_northwind:
+    +enabled: true
+    +schema: dbt_seeds
+    # This configures seeds/country_iso.csv
+    country_iso:
+      +column_types:
+        country: varchar(50)
+        country_iso_2: varchar(2)
+        country_iso_3: varchar(3)
