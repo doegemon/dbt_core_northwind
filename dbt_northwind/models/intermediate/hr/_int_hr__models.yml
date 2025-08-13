@@ -1,0 +1,64 @@
+version: 3
+
+models:
+  - name: int_employees
+    description: "This View has formatted information about the employees of Northwind, like their names, titles, hire date, address, etc."
+    columns:
+      - name: employee_id
+        description: "unique key for the employee. Each employee has an unique employee_id."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_northwind__employees')
+              field: employee_id
+      - name: last_name
+        description: "the last name of the employee."
+        data_tests:
+          - not_null
+      - name: first_name
+        description: "the first name of the employee."
+        data_tests:
+          - not_null
+      - name: full_name
+        description: "the full name of the employee."
+        data_tests:
+          - not_null
+      - name: title
+        description: "the title/job position of the employee."
+        data_tests:
+          - not_null
+      - name: birth_date
+        description: "the birth date of the employee."
+      - name: hire_date
+        description: "the hire date of the employee."
+        data_tests:
+          - not_null
+      - name: address
+        description: "the address of the employee."
+        data_tests:
+          - not_null
+      - name: city
+        description: "the city of the employee."
+        data_tests:
+          - not_null
+      - name: region
+        description: "the region of the employee."
+      - name: postal_code
+        description: "the postal_code of the employee."
+        data_tests:
+          - not_null
+      - name: country
+        description: "the country of the employee."
+        data_tests:
+          - not_null
+      - name: country_code
+        description: "the country code of the employee."
+      - name: home_phone
+        description: "the home phone number of the employee."
+      - name: notes
+        description: "some information about the employee."
+      - name: reports_to
+        description: "the employee_id that the employee reports to."
+      - name: load_at
+        description: "the timestamp of the View update."

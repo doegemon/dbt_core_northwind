@@ -1,0 +1,46 @@
+version: 3
+
+models:
+  - name: int_customers
+    description: "This View has formatted information about the customers of Northwind, like their names, cities, phone number, etc."
+    columns:
+      - name: customer_id
+        description: "unique key for the customer. Each customer has an unique customer_id."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_northwind__customers')
+              field: customer_id
+      - name: company_name
+        description: "the name of the customer."
+        data_tests:
+          - not_null
+      - name: contact_name
+        description: "the name of the main contact of the customer."
+        data_tests:
+          - not_null
+      - name: contact_title
+        description: "the role/job position of the main contact of the customer."
+      - name: address
+        description: "the address of the customer."
+      - name: city
+        description: "the city of the customer."
+      - name: region
+        description: "the region of the customer."
+      - name: postal_code
+        description: "the postal code of the customer"
+        data_tests:
+          - not_null
+      - name: country
+        description: "the country of the customer."
+        data_tests:
+          - not_null
+      - name: country_code
+        description: "the country code of the customer."
+      - name: phone
+        description: "the phone number of the customer."
+      - name: fax
+        description: "the fax number of the customer."
+      - name: load_at
+        description: "the timestamp of the View update."

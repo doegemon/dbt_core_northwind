@@ -1,0 +1,93 @@
+version: 3
+
+models:
+  - name: int_order_details
+    description: "This View has formatted detailed information of the orders placed by the customers."
+    columns:
+      - name: order_id
+        description: "unique key for an order. Each order has a unique order_id."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__orders')
+              field: order_id
+      - name: product_id
+        description: "unique key for an product. Each product has a unique product_id."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__products')
+              field: product_id
+      - name: unit_price
+        description: "the price of one unit of the product."
+        data_tests:
+          - not_null
+      - name: quantity
+        description: "the quantity of the product ordered by the customer."
+        data_tests:
+          - not_null
+      - name: discount
+        description: "the percentage of discount given."
+      - name: product_total
+        description: "the GMV of the product (quantity x unit_price)."
+      - name: product_total_w_discount
+        description: "the GMV of the product minus the discount (quantity x unit_price - discount)."
+      - name: load_at
+        description: "the timestamp of the View update."
+  - name: int_orders
+    description: "This View has formatted information about orders."
+    columns:
+      - name: order_id
+        description: "unique key for an order. Each order has an unique order_id."
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__orders')
+              field: order_id
+      - name: customer_id
+        description: "unique key for the customer that placed the order. Each customer has an unique customer_id."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__customers')
+              field: customer_id
+      - name: employee_id
+        description: "unique key for the employee responsible for the order. Each employee has an unique employee_id."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__employees')
+              field: employee_id
+      - name: order_date
+        description: "the date that the order was placed."
+        data_tests:
+          - not_null
+      - name: required_date
+        description: "the delivery date required by the customer."
+        data_tests:
+          - not_null
+      - name: shipped_date
+        description: "the date the order was shipped."
+      - name: ship_via
+        description: "the channel that the order was shipped."
+      - name: freight
+        description: "the freight value."
+        data_tests:
+          - not_null
+      - name: ship_to_customer_name
+        description: "the name of the customer that the order has to be delivered to."
+      - name: ship_to_customer_address
+        description: "the delivery address."
+      - name: ship_to_customer_city
+        description: "the delivery city."
+      - name: ship_to_customer_region
+        description: "the delivery region."
+      - name: ship_to_customer_postal_code
+        description: "the delivery postal code."
+      - name: ship_to_customer_country
+        description: "the delivery country."
+      - name: ship_to_customer_country_code
+        description: "the delivery country code."
+      - name: load_at
+        description: "the timestamp of the View update."

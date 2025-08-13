@@ -260,3 +260,21 @@ models:
         description: "the website address of the supplier company."
       - name: load_at
         description: "the timestamp of the View update."
+  - name: stg_northwind__categories
+    description: "This View has information about the categories of the products sold by Northwind."
+    columns:
+      - name: category_id
+        description: "unique key for the category. Each category has an unique category_id."
+        data_tests:
+          - not_null
+          - unique
+      - name: category_name
+        description: "the name of the category."
+        data_tests:
+          - not_null
+      - name: description
+        description: "the description of the category."
+        data_tests:
+          - not_null
+      - name: load_at
+        description: "the timestamp of the View update."

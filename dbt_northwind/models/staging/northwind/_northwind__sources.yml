@@ -163,3 +163,14 @@ sources:
             description: "the fax number of the supplier company."
           - name: homepage
             description: "the website address of the supplier company."
+      - name: categories
+        description: "This table has information about the categories of the products sold by Northwind."
+        columns:
+          - name: category_id
+            description: "unique key for the category. Each category has an unique category_id."
+          - name: category_name
+            description: "the name of the category."
+          - name: description
+            description: "the description of the category."
+          - name: picture
+            description: "a picture that represents the category."

@@ -19,6 +19,10 @@ models:
       +enabled: true
       +schema: dbt_staging
       +materialized: view
+    intermediate:
+      +enabled: true
+      +schema: dbt_intermediate
+      +materialized: view
 
 seeds:
   dbt_northwind:

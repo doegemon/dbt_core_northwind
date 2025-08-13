@@ -1,0 +1,89 @@
+version: 3
+
+models:
+  - name: int_products
+    description: "This View has formatted information about the products sold by Northwind."
+    columns:
+      - name: product_id
+        description: "unique key for a product. Each product has an unique product_id."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_northwind__products')
+              field: product_id
+      - name: product_name
+        description: "the name of the product."
+        data_tests:
+          - not_null
+      - name: supplier_id
+        description: "unique key for the supplier. Each supplier has an unique supplier_id."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__suppliers')
+              field: supplier_id
+      - name: category_id
+        description: "unique key for the category. Each category has an unique category_id."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_northwind__categories')
+              field: category_id
+      - name: category_name
+        description: "the name of the category the product belongs to."
+      - name: quantity_per_unit
+        description: "the quantity of the product in a unit (boxes, bottles, etc.)."
+      - name: unit_price
+        description: "the price per unit."
+      - name: units_in_stock
+        description: "the amount of units in stock."
+      - name: units_on_order
+        description: "the amount of units currently ordered."
+      - name: discontinued
+        description: "If Northwind is still selling the product (0 = is selling, 1 = not selling)"
+      - name: load_at
+        description: "the timestamp of the View update."
+  - name: int_suppliers
+    description: "This View has formatted information about the suppliers of the products sold by Northwind."
+    columns:
+      - name: supplier_id
+        description: "unique key for the supplier. Each supplier has an unique supplier_id."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_northwind__suppliers')
+              field: supplier_id
+      - name: company_name
+        description: "the name of the supplier company."
+        data_tests:
+          - not_null
+      - name: contact_name
+        description: "the name of the main contact of the supplier company."
+        data_tests:
+          - not_null
+      - name: contact_title
+        description: "the role/job position of the main contact of the supplier company."
+      - name: address
+        description: "the address of the supplier company."
+      - name: city
+        description: "the city of the supplier company."
+      - name: region
+        description: "the region of the supplier company."
+      - name: postal_code
+        description: "the postal code of the supplier company"
+        data_tests:
+          - not_null
+      - name: country
+        description: "the country of the supplier company."
+        data_tests:
+          - not_null
+      - name: country_code
+        description: "the country code of the supplier company."
+      - name: phone
+        description: "the phone number of the supplier company."
+      - name: fax
+        description: "the fax number of the supplier company."
+      - name: load_at
+        description: "the timestamp of the View update."
