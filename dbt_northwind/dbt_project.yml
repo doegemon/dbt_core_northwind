@@ -23,6 +23,10 @@ models:
       +enabled: true
       +schema: dbt_intermediate
       +materialized: view
+    mart:
+      +enabled: true
+      +schema: dbt_mart
+      +materialized: view
 
 seeds:
   dbt_northwind:

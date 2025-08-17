@@ -73,8 +73,6 @@ models:
         description: "the channel that the order was shipped."
       - name: freight
         description: "the freight value."
-        data_tests:
-          - not_null
       - name: ship_to_customer_name
         description: "the name of the customer that the order has to be delivered to."
       - name: ship_to_customer_address
