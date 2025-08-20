@@ -9,6 +9,10 @@ readme = "README.md"
 python = "^3.12"
 pre-commit = "^4.2.0"
 dbt-postgres = "^1.9.0"
+streamlit = "^1.48.1"
+psycopg2-binary = "^2.9.10"
+sqlalchemy = "^2.0.43"
+pandas = "^2.3.1"
 
 
 [build-system]
