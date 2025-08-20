@@ -19,14 +19,20 @@ models:
       +enabled: true
       +schema: dbt_staging
       +materialized: view
+      +docs:
+        node_color: "#cd7f32"
     intermediate:
       +enabled: true
       +schema: dbt_intermediate
       +materialized: view
+      +docs:
+        node_color: "#c0c0c0"
     mart:
       +enabled: true
       +schema: dbt_mart
       +materialized: view
+      +docs:
+        node_color: "#e6b530"
 
 seeds:
   dbt_northwind:
